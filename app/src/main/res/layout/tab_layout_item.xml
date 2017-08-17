@@ -1,30 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal">
     <!-- LinearLayout的Height必须为wrap_content,如果为match_parent,那么在第二次加载Badge的时候,Tab布局会出现问题 -->
 
-    <View
-        android:layout_width="0dp"
-        android:layout_weight="1"
-        android:layout_height="wrap_content"/>
+    <!--<View-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_weight="1"-->
+        <!--android:layout_height="wrap_content"/>-->
 
-    <TextView
-        android:id="@+id/textview"
+    <LinearLayout
+        android:layout_centerInParent="true"
+        android:id="@+id/layer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:orientation="vertical"
         android:layout_marginLeft="-30dp"
-        android:textColor="@color/tab_text_color_selector"
-        tools:text="abc"/>
+        android:layout_gravity="center"
+        android:gravity="center">
 
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@mipmap/ic_launcher"/>
+
+        <TextView
+            android:id="@+id/textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="@color/tab_text_color_selector"
+            tools:text="abc"/>
+    </LinearLayout>
+
+
+    <!--android:layout_alignTop="@+id/layer"-->
+    <!--android:layout_alignRight="@+id/layer"-->
+    <!--android:layout_alignBottom="@+id/layer"-->
+    <!--android:layout_alignLeft="@+id/layer"-->
     <View
+        android:layout_toRightOf="@+id/layer"
+        android:layout_alignTop="@+id/layer"
         android:id="@+id/badgeview_target"
-        android:layout_width="0dp"
-        android:layout_weight="1"
-        android:layout_height="40dp"
-        android:layout_marginLeft="4dp"
-        android:layout_gravity="center"/>
-</LinearLayout>
+        android:layout_alignBottom="@+id/layer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|right"/>
+</RelativeLayout>
